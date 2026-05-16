@@ -1,3 +1,4 @@
+package src.models;
 public class ParkingSpot {
 
     private int spotNumber;

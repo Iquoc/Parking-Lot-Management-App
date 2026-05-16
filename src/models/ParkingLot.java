@@ -1,12 +1,12 @@
+package src.models;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingLot {
     
-    private List<ParkingSpot> parkingSpots;
+    private List<ParkingSpot> parkingSpots = new ArrayList<>();
 
     public void addParkingSpot(ParkingSpot spot) {
-        if (parkingSpots == null) { parkingSpots = new ArrayList<>(); }
 
         parkingSpots.add(spot);
     }

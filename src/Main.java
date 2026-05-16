@@ -1,4 +1,11 @@
+package src;
 import java.util.Scanner;
+
+import src.models.ParkingLot;
+import src.models.ParkingSpot;
+import src.models.Vehicle;
+import src.models.VehicleSize;
+import src.services.ParkingLotService;
 
 public class Main {
 
@@ -27,6 +34,43 @@ public class Main {
         }
 
         System.out.println("Parking lot initialized successfully!");
+
+        
+        // while (true) {
+        //     System.out.println("1. Park a vehicle%n 2. Remove a vehicle%n 3. Display available parking spots%n 4. Display vehicle status%n 5. Exit%n");
+        //     String input = scan.nextLine();
+
+        //     if (input.matches("[1-5]")) {
+        //         // valid input, break out of the loop
+        //         break;
+        //     } else {
+        //         System.out.println("Invalid input. Please enter a number between 1 and 5.");
+        //     }
+
+        //     switch (Integer.parseInt(input)) {
+        //         case 1:
+        //             // code to park a vehicle
+        //             parkingLotService.parkVehicle(new Vehicle("ABC123", VehicleSize.SMALL));
+        //             break;
+        //         case 2:
+        //             // code to remove a vehicle
+        //             parkingLotService.removeVehicle("ABC123");
+        //             break;
+        //         case 3:
+        //             // code to display available parking spots
+        //             break;
+        //         case 4:
+        //             // code to display vehicle status
+        //             break;
+        //         case 5:
+        //             System.out.println("Exiting the Parking Lot Management App. Goodbye!");
+        //             return; // exit the program
+        //         default:
+        //             System.out.println("Invalid option. Please enter a number between 1 and 5.");
+        //     }
+        // }
+
+        // Close the Scanner to free up resources
 
         scan.close();
     }

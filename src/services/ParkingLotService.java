@@ -1,6 +1,12 @@
+package src.services;
+
+import src.models.ParkingLot;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import src.models.ParkingSpot;
+import src.models.Vehicle;
 
 public class ParkingLotService {
     

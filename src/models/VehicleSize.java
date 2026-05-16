@@ -1,4 +1,5 @@
-enum VehicleSize{
+package src.models;
+public enum VehicleSize{
     SMALL (1), 
     LARGE(2), 
     OVERSIZE(3);
