@@ -4,7 +4,7 @@ public enum VehicleSize{
     LARGE(2), 
     OVERSIZE(3);
 
-    private final int rank;
+    private final int rank; // rank to determine the size hierarchy
 
     VehicleSize(int rank) {
         this.rank = rank;

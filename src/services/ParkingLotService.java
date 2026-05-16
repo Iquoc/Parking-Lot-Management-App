@@ -20,6 +20,12 @@ public class ParkingLotService {
 
     // find a parking spot for the given vehicle and park it in the parking lot
     public boolean parkVehicle(Vehicle vehicle) {
+        // check if vehicle is already parked in the parking lot by looking it up in the map
+        if (vehicleMap.containsKey(vehicle.getLicensePlate())) {
+            System.out.println("Vehicle with license plate " + vehicle.getLicensePlate() + " is already parked in the parking lot.");
+            return false;
+        }
+
         // find an available parking spot for the vehicle
         // if a spot is found, mark it as occupied and add the vehicle to the map
         // return true if the vehicle was parked successfully, false otherwise
@@ -33,6 +39,7 @@ public class ParkingLotService {
             }
         }
 
+        System.out.println("No available parking spot found for vehicle with license plate " + vehicle.getLicensePlate());
         return false;
     }
 
@@ -57,20 +64,48 @@ public class ParkingLotService {
         return parkingLot.getAvailableSpots(); // return a list of all parking spots that are not currently occupied
     }
     
-    // display the current status of the vehicle if it is parked in the parking lot
+    // display the current status of the vehicle if it is parked in the parking lot USING vehicle object
     public void displayVehicleStatus(Vehicle vehicle) {
         // check if the vehicle is parked in the parking lot by looking it up in the map
         // if the vehicle is found, display its current parking spot and status
         if (vehicleMap.containsKey(vehicle.getLicensePlate())) {
             ParkingSpot spot = vehicleMap.get(vehicle.getLicensePlate());
             
-            System.out.printf("=== VEHICLE PARKING STATUS ===%n");
-            System.out.printf("License Plate: %s%n", vehicle.getLicensePlate());
-            System.out.printf("Vehicle Size: %s%n", vehicle.getSize());
-            System.out.printf("Parking Spot Number: %d%n", spot.getSpotNumber());
-            // System.out.printf("Parking Spot Size: %s%n", spot.getSize());
+            if (spot.getVehicle() == null) {
+                System.out.println("Vehicle with license plate " + vehicle.getLicensePlate() + " is not parked in the parking lot.");
+                return;
+            }
+
+            helperDisplay(vehicle, spot);
+
         } else {
             System.out.println("Vehicle with license plate " + vehicle.getLicensePlate() + " is not parked in the parking lot.");
         }
+    }
+
+    // display the current status of the vehicle if it is parked in the parking lot USING String licensePlate
+    public void displayVehicleStatus(String licensePlate) {
+        // check if the vehicle is parked in the parking lot by looking it up in the map
+        // if the vehicle is found, display its current parking spot and status
+        if (vehicleMap.containsKey(licensePlate)) {
+            ParkingSpot spot = vehicleMap.get(licensePlate);
+
+            if (spot.getVehicle() == null) {
+                System.out.println("Vehicle with license plate " + licensePlate + " is not parked in the parking lot.");
+                return;
+            }
+
+            helperDisplay(spot.getVehicle(), spot);
+        } else {
+            System.out.println("Vehicle with license plate " + licensePlate + " is not parked in the parking lot.");
+        }
+    }
+
+    private void helperDisplay(Vehicle vehicle, ParkingSpot spot) {
+        System.out.printf("=== VEHICLE PARKING STATUS ===%n");
+        System.out.printf("License Plate: %s%n", vehicle.getLicensePlate());
+        System.out.printf("Vehicle Size: %s%n", vehicle.getSize());
+        System.out.printf("Parking Spot Size: %s%n", spot.getSize());
+        System.out.printf("Parking Spot Number: %d%n", spot.getSpotNumber());
     }
 }
