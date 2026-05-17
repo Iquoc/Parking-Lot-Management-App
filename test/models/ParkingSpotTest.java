@@ -65,6 +65,22 @@ public class ParkingSpotTest {
     }
 
     @Test
+    public void testReuseSpotAfterRemovingVehicle() {
+        Vehicle vehicle1 = new Vehicle("ABC123", VehicleSize.LARGE);
+        Vehicle vehicle2 = new Vehicle("XYZ789", VehicleSize.SMALL);
+        
+        spot.addVehicle(vehicle1);
+        assertTrue(spot.isOccupied());
+        
+        spot.removeVehicle();
+        assertFalse(spot.isOccupied());
+        
+        // Now add a different vehicle to the same spot
+        spot.addVehicle(vehicle2);
+        assertTrue(spot.isOccupied());
+    }
+
+    @Test
     public void testRemoveVehicleFromEmptySpot() {
         assertFalse(spot.isOccupied());
         spot.removeVehicle(); // Should handle gracefully

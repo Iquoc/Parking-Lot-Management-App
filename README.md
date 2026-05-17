@@ -11,8 +11,7 @@ A simple Java console application for managing a parking lot. The program initia
 
 ## Build and Run
 
-Open a terminal in the project root (`c:\Users\iquoc\Documents\GitHub\Parking-Lot-Management-App`) and run:
-
+Open a terminal in the project root (e.g. `C:\path\to\Parking-Lot-Management-App`) and run:
 1. Create an output directory for compiled classes:
 
    ```cmd

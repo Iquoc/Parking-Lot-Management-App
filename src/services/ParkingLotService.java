@@ -71,13 +71,8 @@ public class ParkingLotService {
         // if the vehicle is found, display its current parking spot and status
         if (vehicleMap.containsKey(vehicle.getLicensePlate())) {
             ParkingSpot spot = vehicleMap.get(vehicle.getLicensePlate());
-            
-            if (spot.getVehicle() == null) {
-                System.out.println("Vehicle with license plate " + vehicle.getLicensePlate() + " is not parked in the parking lot.");
-                return;
-            }
 
-            helperDisplay(vehicle, spot);
+            displayVSFormat(vehicle, spot);
 
         } else {
             System.out.println("Vehicle with license plate " + vehicle.getLicensePlate() + " is not parked in the parking lot.");
@@ -91,18 +86,13 @@ public class ParkingLotService {
         if (vehicleMap.containsKey(licensePlate)) {
             ParkingSpot spot = vehicleMap.get(licensePlate);
 
-            if (spot.getVehicle() == null) {
-                System.out.println("Vehicle with license plate " + licensePlate + " is not parked in the parking lot.");
-                return;
-            }
-
-            helperDisplay(spot.getVehicle(), spot);
+            displayVSFormat(spot.getVehicle(), spot);
         } else {
             System.out.println("Vehicle with license plate " + licensePlate + " is not parked in the parking lot.");
         }
     }
 
-    private void helperDisplay(Vehicle vehicle, ParkingSpot spot) {
+    private void displayVSFormat(Vehicle vehicle, ParkingSpot spot) {
         System.out.printf("=== VEHICLE PARKING STATUS ===%n");
         System.out.printf("License Plate: %s%n", vehicle.getLicensePlate());
         System.out.printf("Vehicle Size: %s%n", vehicle.getSize());

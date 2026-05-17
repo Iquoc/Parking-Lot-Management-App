@@ -21,7 +21,7 @@ public class ParkingLot {
                 availableSpots.add(spot);
             }
         }
-        // return a list of available parking spots
+
         return availableSpots;
     }
 }

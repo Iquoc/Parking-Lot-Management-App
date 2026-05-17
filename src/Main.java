@@ -26,8 +26,9 @@ public class Main {
             String input = scan.nextLine();
             if (input.matches("\\d+")) {
                 int numSpots = Integer.parseInt(input);
-                helper(numSpots);
+                
                 System.out.println("Initializing parking lot with " + input + " parking spots...");
+                initializeParkingLot(numSpots);
                 break; // valid input, break out of the loop
             } else {
                 System.out.println("Invalid input. Please enter a valid number of parking spots.");
@@ -50,7 +51,7 @@ public class Main {
                         System.out.println("\n=== PARKING ===\n\nType \"back\" to return to the main menu.\nPlease enter the license plate and size of the vehicle to park (e.g., ABC123 SMALL)\nSizing options: " + Arrays.toString(VehicleSize.values()));
 
                         while (true) {
-                            input = scan.nextLine();
+                            input = scan.nextLine().toUpperCase();
 
                             if (input.equalsIgnoreCase("back")) {
                                 break; // return to the main menu
@@ -60,7 +61,7 @@ public class Main {
                             if (parts.length == 2 && parts[0].matches("[A-Z0-9]+") && parts[1].matches("SMALL|LARGE|OVERSIZE")) {
                                 String licensePlate = parts[0];
                                 VehicleSize size = VehicleSize.valueOf(parts[1]);
-                                helperPark(licensePlate, size);
+                                parkingLotService.parkVehicle(new Vehicle(licensePlate, size));
                                 break; // valid input, break out of the loop
                             } else {
                                 System.out.println("Invalid input. Type \"back\" to return to the main menu.\nPlease enter the license plate and size of the vehicle to park (e.g., ABC123 SMALL)\nSizing options: " + Arrays.toString(VehicleSize.values()));
@@ -73,7 +74,7 @@ public class Main {
                         System.out.println("\n=== REMOVING ===\n\nType \"back\" to return to the main menu.\nPlease enter the license plate of the vehicle to remove:");
                         
                         while (true) {
-                            input = scan.nextLine();
+                            input = scan.nextLine().toUpperCase();
 
                             if (input.equalsIgnoreCase("back")) {
                                 break; // return to the main menu
@@ -81,7 +82,7 @@ public class Main {
 
                             if (input.matches("[A-Z0-9]+")) {
                                 String licensePlate = input;
-                                helperRemove(licensePlate);
+                                parkingLotService.removeVehicle(licensePlate);
                                 break; // valid input, break out of the loop
                             } else {
                                 System.out.println("Invalid input. Type \"back\" to return to the main menu.\nPlease enter the license plate of the vehicle to remove:");
@@ -93,7 +94,7 @@ public class Main {
                         System.out.println("\n=== STATUS ===\n\nType \"back\" to return to the main menu.\nPlease enter the license plate of the vehicle to display its status:");
                         
                         while (true) {
-                            input = scan.nextLine();
+                            input = scan.nextLine().toUpperCase();
 
                             if (input.equalsIgnoreCase("back")) {
                                 break; // return to the main menu
@@ -101,7 +102,7 @@ public class Main {
 
                             if (input.matches("[A-Z0-9]+")) {
                                 String licensePlate = input;
-                                helperDisplay(licensePlate);
+                                parkingLotService.displayVehicleStatus(licensePlate);
                                 break; // valid input, break out of the loop
                             } else {
                                 System.out.println("Invalid input. Please enter the license plate of the vehicle to display its status:");
@@ -111,7 +112,7 @@ public class Main {
                     case 4:
                         System.out.println("\n=== EXITING ===\n");
                         System.out.println("Exiting the Parking Lot Management App. Goodbye!");
-                        // Close the Scanner to free up resources
+                        
                         scan.close();
                         return; // exit the program
                     default:
@@ -125,8 +126,7 @@ public class Main {
     }
 
     // helper method to load initial parking lot data (e.g., parking spots, vehicles, etc.)
-    private static void helper(int numSpots) {
-        // create a parking lot with the specified number of parking spots
+    private static void initializeParkingLot(int numSpots) {
         ParkingLot parkingLot = new ParkingLot();
 
         for (int i = 1; i <= numSpots; i++) {
@@ -150,16 +150,4 @@ public class Main {
         parkingLotService.parkVehicle(vehicle3);
         */
     }   
-
-    private static void helperPark(String licensePlate, VehicleSize size) {
-        parkingLotService.parkVehicle(new Vehicle(licensePlate, size));
-    }
-
-    private static void helperRemove(String licensePlate) {
-        parkingLotService.removeVehicle(licensePlate);
-    }
-
-    private static void helperDisplay(String licensePlate) {
-        parkingLotService.displayVehicleStatus(licensePlate);
-    }
 }

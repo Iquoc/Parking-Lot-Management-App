@@ -96,8 +96,6 @@ public class ParkingLotServiceTest {
         Vehicle vehicle = new Vehicle("DEF456", VehicleSize.SMALL);
         service.parkVehicle(vehicle);
 
-
-        
         // This should not throw an exception
         service.displayVehicleStatus(vehicle);
     }
