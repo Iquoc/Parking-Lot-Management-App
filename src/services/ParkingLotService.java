@@ -39,7 +39,7 @@ public class ParkingLotService {
             }
         }
 
-        System.out.println("No available parking spot found for vehicle with license plate " + vehicle.getLicensePlate());
+        System.out.println("No available parking spot found for vehicle with license plate " + vehicle.getLicensePlate() + ".");
         return false;
     }
 
@@ -55,6 +55,7 @@ public class ParkingLotService {
             return true;
         }
 
+        System.out.println("No vehicle with license plate " + licensePlate + " was found in the parking lot.");
         return false;
     }
 
