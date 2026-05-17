@@ -46,10 +46,21 @@ Open a terminal in the project root (e.g. `C:\path\to\Parking-Lot-Management-App
   - `XYZ789 LARGE`
   - `DEF456 OVERSIZE`
 
+*NOT CASE-SENSITIVE
+
 ### Remove or display input
 
 - Enter only the license plate, for example:
   - `ABC123`
+
+## Seed Data
+
+If you want to seed data instead of manually setting up the parking lot, comment the block between (Main.java, line 23-40).  And, uncomment (Main.java, line 44).
+
+The application initializes parking slots automatically
+using a 50/30/20 slot distribution.
+
+Sample vehicles (3, 1 of each size) will also be preloaded for testing.
 
 ## Notes
 

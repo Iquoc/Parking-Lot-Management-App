@@ -19,8 +19,10 @@ public class Main {
 
         // Prompt the user for input
         System.out.println("Welcome to the Parking Lot Management App!");
-        System.out.println("Please enter the number of parking spots in the parking lot: ");
+        
+        // >>> MANUAL SETUP 
 
+        System.out.println("Please enter the number of parking spots in the parking lot: ");
         // Continuously read input until a valid number of parking spots is entered
         while (true) {
             String input = scan.nextLine();
@@ -34,6 +36,14 @@ public class Main {
                 System.out.println("Invalid input. Please enter a valid number of parking spots.");
             }
         }
+
+        // <<< MANUAL SETUP
+
+        // >>> SEED DATA
+
+        // seedData(); // seed initial data into the parking lot
+
+        // <<< SEED DATA
 
         System.out.println("Parking lot initialized successfully!");
 
@@ -138,16 +148,54 @@ public class Main {
 
         // initialize parking lot service to manage the parking lot
         parkingLotService = new ParkingLotService(parkingLot);
+    }   
+
+    private static void seedData() {
+        // This method can be used to seed initial data into the parking lot if needed
+        ParkingLot parkingLot = new ParkingLot();
+
+        // Add some parking spots
+        int n = 10; // number of parking spots to add
+        double s_per = 0.5; // percentage of small spots
+        double l_per = 0.3; // percentage of large spots
+
+        int smallSpots = (int) (n * s_per);
+        int largeSpots = (int) (n * l_per);
+        // int oversizeSpots = n - smallSpots - largeSpots;
+
+        for (int i = 1; i <= n; i++) {
+            if (i <= smallSpots) {
+                VehicleSize size = VehicleSize.SMALL;
+                ParkingSpot spot = new ParkingSpot(i, size);
+                parkingLot.addParkingSpot(spot);
+            } else if (i <= smallSpots + largeSpots) {
+                VehicleSize size = VehicleSize.LARGE;
+                ParkingSpot spot = new ParkingSpot(i, size);
+                parkingLot.addParkingSpot(spot);
+            } else {
+                VehicleSize size = VehicleSize.OVERSIZE;
+                ParkingSpot spot = new ParkingSpot(i, size);
+                parkingLot.addParkingSpot(spot);
+            }
+        }
+
+        System.out.println("\nParking lot initialized with 10 slots");
+        System.out.println("Slot distribution: " + smallSpots + " small, " + largeSpots + " large, " + (n - smallSpots - largeSpots) + " oversize");
+
+        // initialize parking lot service to manage the parking lot
+        parkingLotService = new ParkingLotService(parkingLot);
 
         // add some vehicles to the parking lot
-        /*
+        
         Vehicle vehicle1 = new Vehicle("ABC123", VehicleSize.SMALL);
         Vehicle vehicle2 = new Vehicle("XYZ789", VehicleSize.LARGE);
         Vehicle vehicle3 = new Vehicle("DEF456", VehicleSize.OVERSIZE);
 
+        System.out.println("\nSample vehicles added to the parking lot: " + vehicle1.getLicensePlate() + " (" + vehicle1.getSize() + "), " + vehicle2.getLicensePlate() + " (" + vehicle2.getSize() + "), " + vehicle3.getLicensePlate() + " (" + vehicle3.getSize() + ")");
+
         parkingLotService.parkVehicle(vehicle1);
         parkingLotService.parkVehicle(vehicle2);
         parkingLotService.parkVehicle(vehicle3);
-        */
-    }   
+        
+    }
 }
