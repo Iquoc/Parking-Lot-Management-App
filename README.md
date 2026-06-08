@@ -4,6 +4,17 @@
 
 A simple Java console application for managing a parking lot. The program initializes a parking lot with a number of spots, then lets you park vehicles, remove vehicles, and display vehicle parking status.
 
+## Key Highlights
+
+- Designed and implemented a Java CLI application modeling a configurable parking lot with tiered slot sizing (Small, Large, Oversize), applying core OO principles including inheritance, encapsulation, and polymorphism across a Vehicle, ParkingSlot, and ParkingLot class hierarchy
+- Produced a formal UML architecture diagram defining class relationships, method signatures, and data flow prior to implementation, demonstrating structured design thinking and distributed system planning skills
+- Built full vehicle lifecycle management (entry, exit, and real-time status display) with in-memory state tracking, exercising problem-solving and critical thinking to handle edge cases like slot availability and size mismatch
+- Authored a JUnit test suite covering core business logic including slot assignment, vehicle entry/exit validation, and capacity edge cases, reflecting familiarity with test-driven development in an agile workflow
+- Documented the project in a public GitHub repository with a structured README covering design approach, key files, and step-by-step instructions to run, test, and verify the application — modeling clear technical communication standards
+- Maintained clean separation of concerns across the codebase with modular, extensible class design, enabling future enhancements such as database persistence or REST API integration with minimal refactoring
+
+
+
 ## Requirements
 
 - Java SE Development Kit (JDK) 17 or later installed
