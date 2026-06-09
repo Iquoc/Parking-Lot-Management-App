@@ -44,6 +44,25 @@ public class ParkingLotServiceTest {
     }
 
     @Test
+    public void testParkSizeOptimize() {
+        Vehicle smallVehicle1 = new Vehicle("SMALL123", VehicleSize.SMALL);
+        Vehicle smallVehicle2 = new Vehicle("SMALL456", VehicleSize.SMALL);
+        Vehicle smallVehicle3 = new Vehicle("SMALL789", VehicleSize.SMALL);
+        Vehicle smallVehicle4 = new Vehicle("SMALL1011", VehicleSize.SMALL);
+        Vehicle largeVehicle = new Vehicle("LARGE123", VehicleSize.LARGE);
+        
+        service.parkVehicle(smallVehicle1);
+        service.parkVehicle(smallVehicle2);
+        service.parkVehicle(smallVehicle3);
+        boolean resultSmall4 = service.parkVehicle(smallVehicle4);
+        boolean resultLarge = service.parkVehicle(largeVehicle);
+        
+        
+        assertTrue(resultSmall4); // should park in the first large spot
+        assertTrue(resultLarge);
+    }
+
+    @Test
     public void testParkVehicleInFullLot() {
         // Fill all spots
         Vehicle[] vehicles = new Vehicle[5];
@@ -109,6 +128,18 @@ public class ParkingLotServiceTest {
 
         // This should not throw an exception
         service.displayVehicleStatus(vehicle);
+    }
+
+    @Test
+    public void testDisplayParkingLotStatus() {
+        Vehicle vehicle1 = new Vehicle("ABC123", VehicleSize.SMALL);
+        Vehicle vehicle2 = new Vehicle("XYZ789", VehicleSize.LARGE);
+        
+        service.parkVehicle(vehicle1);
+        service.parkVehicle(vehicle2);
+
+        // This should not throw an exception
+        service.displayParkingLotStatus();
     }
 
     @Test

@@ -30,13 +30,30 @@ public class ParkingLotService {
         // if a spot is found, mark it as occupied and add the vehicle to the map
         // return true if the vehicle was parked successfully, false otherwise
         List<ParkingSpot> availableSpots = findAvailableSpots();
+        ParkingSpot nextAvailable = null; // if there is no spot matching the vehicle size, this will be the next available spot that can fit the vehicle
 
         for (ParkingSpot spot : availableSpots) {
-            if (spot.getSize().getRank() >= vehicle.getSize().getRank()) {
+            if (spot.getSize().getRank() == vehicle.getSize().getRank()) {
                 spot.addVehicle(vehicle);
                 vehicleMap.put(vehicle.getLicensePlate(), spot); // add the vehicle to the map with its license plate as the key
                 return true;
             }
+            else if (spot.getSize().getRank() - 1 == vehicle.getSize().getRank()) {
+                if (nextAvailable == null) {
+                    nextAvailable = spot; // update the next available medium spot that can fit the vehicle
+                }
+            }
+            else if (spot.getSize().getRank() - 2 == vehicle.getSize().getRank()) {
+                if (nextAvailable == null) {
+                    nextAvailable = spot; // update the next available large spot that can fit the vehicle
+                }
+            }
+        }
+
+        if (nextAvailable != null) {
+            nextAvailable.addVehicle(vehicle);
+            vehicleMap.put(vehicle.getLicensePlate(), nextAvailable); // add the vehicle to the map with its license plate as the key
+            return true;
         }
 
         System.out.println("No available parking spot found for vehicle with license plate " + vehicle.getLicensePlate() + ".");
