@@ -99,4 +99,19 @@ public class ParkingLotService {
         System.out.printf("Parking Spot Size: %s%n", spot.getSize());
         System.out.printf("Parking Spot Number: %d%n", spot.getSpotNumber());
     }
+
+    public void displayParkingLotStatus() {
+        System.out.printf("=== PARKING LOT STATUS ===%n");
+        System.out.printf("Total Spots: %d%n", parkingLot.getParkingSize());
+
+        List<ParkingSpot> lot = parkingLot.getParkingSpots();
+
+        for (ParkingSpot spot : lot) {
+            if (spot.isOccupied()) {
+                System.out.printf("Spot Number: %d, Spot Size: %s -> %s%n", spot.getSpotNumber(), spot.getSize(), spot.getVehicle().getLicensePlate());
+            } else {
+                System.out.printf("Spot Number: %d, Spot Size: %s -> _%n", spot.getSpotNumber(), spot.getSize());
+            }
+        }
+    }
 }

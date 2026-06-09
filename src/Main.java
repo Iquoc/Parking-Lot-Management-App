@@ -50,7 +50,7 @@ public class Main {
         // menu loop to allow the user to park/remove/display vehicles until they choose to exit
         while (true) {
             System.out.println("\n=== MAIN MENU ===\n\nPlease select an option:");
-            System.out.println("1. Park a vehicle\n2. Remove a vehicle\n3. Display vehicle status\n4. Exit\n");
+            System.out.println("1. Park a vehicle\n2. Remove a vehicle\n3. Display vehicle status\n4. Display parking lot status\n5. Exit\n");
             String input = scan.nextLine();
 
             // validate user input and call the appropriate helper method based on the selected option
@@ -120,6 +120,12 @@ public class Main {
                         }
                         break;
                     case 4:
+                        // code to display all parking spots and their status
+                        System.out.println("\n=== PARKING LOT STATUS ===\n");
+                        parkingLotService.displayParkingLotStatus();
+                        break;
+                    case 5:
+                        // code to exit the program
                         System.out.println("\n=== EXITING ===\n");
                         System.out.println("Exiting the Parking Lot Management App. Goodbye!");
                         
