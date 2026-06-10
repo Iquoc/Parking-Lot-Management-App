@@ -124,7 +124,7 @@ public class ParkingLotServiceTest {
         Vehicle vehicle = new Vehicle("GHI789", VehicleSize.SMALL);
         service.parkVehicle(vehicle);
         
-        service.removeVehicle(vehicle.getLicensePlate());
+        service.removeVehicle(vehicle.licensePlate());
 
         // This should not throw an exception
         service.displayVehicleStatus(vehicle);

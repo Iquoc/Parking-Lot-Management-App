@@ -197,7 +197,7 @@ public class Main {
         Vehicle vehicle2 = new Vehicle("XYZ789", VehicleSize.LARGE);
         Vehicle vehicle3 = new Vehicle("DEF456", VehicleSize.OVERSIZE);
 
-        System.out.println("\nSample vehicles added to the parking lot: " + vehicle1.getLicensePlate() + " (" + vehicle1.getSize() + "), " + vehicle2.getLicensePlate() + " (" + vehicle2.getSize() + "), " + vehicle3.getLicensePlate() + " (" + vehicle3.getSize() + ")");
+        System.out.println("\nSample vehicles added to the parking lot: " + vehicle1.licensePlate() + " (" + vehicle1.size() + "), " + vehicle2.licensePlate() + " (" + vehicle2.size() + "), " + vehicle3.licensePlate() + " (" + vehicle3.size() + ")");
 
         parkingLotService.parkVehicle(vehicle1);
         parkingLotService.parkVehicle(vehicle2);

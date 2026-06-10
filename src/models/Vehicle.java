@@ -1,28 +1,14 @@
 package src.models;
-public class Vehicle {
-    
-    private String licensePlate;
-    private VehicleSize size;
 
-    public Vehicle(String licensePlate, VehicleSize size) {
-        this.licensePlate = licensePlate;
-        this.size = size;
+public record Vehicle(String licensePlate, VehicleSize size) {
+    // Java 17 features https://docs.oracle.com/en/java/javase/17/language/records.html
+
+    public Vehicle {
+        if (licensePlate == null || licensePlate.isEmpty()) {
+            throw new IllegalArgumentException("License plate cannot be null or empty.");
+        }
+        if (size == null) {
+            throw new IllegalArgumentException("Vehicle size cannot be null.");
+        }
     }
-
-    public String getLicensePlate() {
-        return licensePlate;
-    }
-
-    public VehicleSize getSize() {
-        return size;
-    }
-
-    public void setLicensePlate(String licensePlate) {
-        this.licensePlate = licensePlate;
-    }
-
-    public void setSize(VehicleSize size) {
-        this.size = size;
-    }
-
 }

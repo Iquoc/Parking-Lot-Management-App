@@ -17,36 +17,24 @@ public class VehicleTest {
     @Test
     public void testVehicleCreation() {
         assertNotNull(vehicle);
-        assertEquals("ABC123", vehicle.getLicensePlate());
-        assertEquals(VehicleSize.LARGE, vehicle.getSize());
+        assertEquals("ABC123", vehicle.licensePlate());
+        assertEquals(VehicleSize.LARGE, vehicle.size());
     }
 
     @Test
-    public void testGetLicensePlate() {
-        assertEquals("ABC123", vehicle.getLicensePlate());
+    public void testlicensePlate() {
+        assertEquals("ABC123", vehicle.licensePlate());
     }
 
     @Test
-    public void testGetSize() {
-        assertEquals(VehicleSize.LARGE, vehicle.getSize());
-    }
-
-    @Test
-    public void testSetLicensePlate() {
-        vehicle.setLicensePlate("XYZ789");
-        assertEquals("XYZ789", vehicle.getLicensePlate());
-    }
-
-    @Test
-    public void testSetSize() {
-        vehicle.setSize(VehicleSize.SMALL);
-        assertEquals(VehicleSize.SMALL, vehicle.getSize());
+    public void testsize() {
+        assertEquals(VehicleSize.LARGE, vehicle.size());
     }
 
     @Test
     public void testVehicleWithSmallSize() {
         Vehicle smallVehicle = new Vehicle("DEF456", VehicleSize.SMALL);
-        assertEquals(VehicleSize.SMALL, smallVehicle.getSize());
+        assertEquals(VehicleSize.SMALL, smallVehicle.size());
     }
 
 }

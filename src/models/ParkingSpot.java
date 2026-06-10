@@ -44,7 +44,7 @@ public class ParkingSpot {
         }
 
         // check if the vehicle size is compatible with the parking spot size
-        if (vehicle.getSize().getRank() > size.getRank()) {
+        if (vehicle.size().getRank() > size.getRank()) {
             System.out.println("Vehicle size is too large for parking spot " + spotNumber + ".");
             return;
         }
@@ -52,7 +52,7 @@ public class ParkingSpot {
         // park the vehicle in the spot
         this.vehicle = vehicle;
         this.isOccupied = true;
-        System.out.println("Vehicle with license plate " + vehicle.getLicensePlate() + " parked in spot " + spotNumber + ".");
+        System.out.println("Vehicle with license plate " + vehicle.licensePlate() + " parked in spot " + spotNumber + ".");
     }
 
     // remove a vehicle from the parking spot
@@ -65,7 +65,7 @@ public class ParkingSpot {
         }
 
         // remove the vehicle from the spot
-        System.out.println("Vehicle with license plate " + vehicle.getLicensePlate() + " removed from spot " + spotNumber + ".");
+        System.out.println("Vehicle with license plate " + vehicle.licensePlate() + " removed from spot " + spotNumber + ".");
         this.vehicle = null;
         this.isOccupied = false;
     }
