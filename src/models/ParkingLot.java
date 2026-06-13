@@ -33,11 +33,11 @@ public class ParkingLot {
 
         // return availableSpots;
 
-        return parkingSpots.stream().filter(Predicate.not(ParkingSpot::isOccupied)).toList();
+        return parkingSpots.stream().filter(Predicate.not(ParkingSpot::isOccupied)).toList(); // toList() is unmodifiable
     }
 
     public List<ParkingSpot> getParkingSpots() {
         parkingSpots.sort(Comparator.comparingInt(ParkingSpot::getSpotNumber));
-        return parkingSpots;
+        return List.copyOf(parkingSpots); // immutable view instead of exposing the internal list
     }
 }

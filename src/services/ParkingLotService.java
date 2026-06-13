@@ -160,15 +160,32 @@ public class ParkingLotService {
     }
 
     private void displayVSFormat(Vehicle vehicle, ParkingSpot spot) {
-        System.out.printf("=== VEHICLE PARKING STATUS ===%n");
-        System.out.printf("License Plate: %s%n", vehicle.licensePlate());
-        System.out.printf("Vehicle Size: %s%n", vehicle.size());
-        System.out.printf("Parking Spot Size: %s%n", spot.getSize());
-        System.out.printf("Parking Spot Number: %d%n", spot.getSpotNumber());
+        System.out.print(
+            """
+            
+            === VEHICLE PARKING STATUS ===
+
+            License Plate: %s
+            Vehicle Size: %s
+            Parking Spot Size: %s
+            Parking Spot Number: %d
+            """.formatted(
+                vehicle.licensePlate(),
+                vehicle.size(),
+                spot.getSize(),
+                spot.getSpotNumber()
+            )
+        );
+
+        // System.out.printf("=== VEHICLE PARKING STATUS ===%n");
+        // System.out.printf("License Plate: %s%n", vehicle.licensePlate());
+        // System.out.printf("Vehicle Size: %s%n", vehicle.size());
+        // System.out.printf("Parking Spot Size: %s%n", spot.getSize());
+        // System.out.printf("Parking Spot Number: %d%n", spot.getSpotNumber());
     }
 
     public void displayParkingLotStatus() {
-        System.out.printf("=== PARKING LOT STATUS ===%n");
+        // System.out.printf("=== PARKING LOT STATUS ===%n");
         System.out.printf("Total Spots: %d%n", parkingLot.getParkingSize());
 
         List<ParkingSpot> lot = parkingLot.getParkingSpots();
