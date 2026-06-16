@@ -63,9 +63,22 @@ using a 50/30/20 slot distribution.
 
 Sample vehicles (3, 1 of each size) will also be preloaded for testing.
 
-## Java 17+ Features
+## Java Updated Features
 
-<img src="/Java 17+ Features/parkVehicle()-preStream.png" alt="nested conditionals, iterate through arraylist" style="" />
+String Blocks (Java SE 15)
+<img src="/java 17+ features/displayVSFormat-preStringBlock.png" alt="multiple print statements, readability" style="" />
+<img src="/java 17+ features/displayVSFormat-postStringBlock.png" alt="single print statement, readability" style="" />
+
+Records (Java SE 16)
+[public record Vehicle](https://github.com/Iquoc/Parking-Lot-Management-App/blob/main/src/main/java/com/parkinglot/models/Vehicle.java)
+
+Stream (Java SE 17)
+<img src="/java 17+ features/parkVehicle()-preStream.png" alt="nested conditionals, iterate through arraylist" style="" />
+<img src="/java 17+ features/parkVehicle()-postStream.png" alt="stream arraylist and filter, iterate through arraylist" style="" />
+
+Stream (Java SE 17)
+<img src="/java 17+ features/getAvailableSpots()-preStream.png" alt="nested conditionals, iterate through arraylist" style="" />
+<img src="/java 17+ features/getAvailableSpots()-postStream.png" alt="stream arraylist and filter, iterate through arraylist" style="" />
 
 ## Notes
 
