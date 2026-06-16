@@ -1,4 +1,4 @@
-package src.models;
+package com.parkinglot.models;
 public class ParkingSpot {
 
     private int spotNumber;

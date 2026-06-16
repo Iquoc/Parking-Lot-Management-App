@@ -1,7 +1,6 @@
-package test.services;
+package com.parkinglot.services;
 
-import src.models.*;
-import src.services.*;
+import com.parkinglot.models.*;
 import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;

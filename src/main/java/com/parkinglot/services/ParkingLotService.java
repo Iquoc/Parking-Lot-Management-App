@@ -1,6 +1,6 @@
-package src.services;
+package com.parkinglot.services;
 
-import src.models.ParkingLot;
+import com.parkinglot.models.ParkingLot;
 
 import java.util.Comparator;
 import java.util.HashMap;
@@ -9,8 +9,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import src.models.ParkingSpot;
-import src.models.Vehicle;
+import com.parkinglot.models.ParkingSpot;
+import com.parkinglot.models.Vehicle;
 
 public class ParkingLotService {
     
@@ -104,7 +104,7 @@ public class ParkingLotService {
     // find all available parking spots in the parking lot
     private List<ParkingSpot> findAvailableSpots() {
         return parkingLot.getAvailableSpots(); // return a list of all parking spots that are not currently occupied
-    }
+    }   
     
     // display the current status of the vehicle if it is parked in the parking lot USING vehicle object
     public void displayVehicleStatus(Vehicle vehicle) {

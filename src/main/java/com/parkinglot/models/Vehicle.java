@@ -1,4 +1,4 @@
-package src.models;
+package com.parkinglot.models;
 
 public record Vehicle(String licensePlate, VehicleSize size) {
     // Java 17 features https://docs.oracle.com/en/java/javase/17/language/records.html

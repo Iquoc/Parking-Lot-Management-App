@@ -1,4 +1,4 @@
-package src.models;
+package com.parkinglot.models;
 public enum VehicleSize{
     SMALL (1), 
     LARGE(2), 

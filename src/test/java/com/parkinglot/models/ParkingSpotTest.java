@@ -1,6 +1,4 @@
-package test.models;
-
-import src.models.*;
+package com.parkinglot.models;
 
 import org.junit.Test;
 import org.junit.Before;

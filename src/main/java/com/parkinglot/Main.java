@@ -1,12 +1,12 @@
-package src;
+package com.parkinglot;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import src.models.ParkingLot;
-import src.models.ParkingSpot;
-import src.models.Vehicle;
-import src.models.VehicleSize;
-import src.services.ParkingLotService;
+import com.parkinglot.models.ParkingLot;
+import com.parkinglot.models.ParkingSpot;
+import com.parkinglot.models.Vehicle;
+import com.parkinglot.models.VehicleSize;
+import com.parkinglot.services.ParkingLotService;
 
 public class Main {
 
@@ -129,7 +129,7 @@ public class Main {
                     case 2 -> {
                         // code to remove a vehicle
                         System.out.print("""
-                            
+
                             === REMOVING ===
                             %s""".formatted(remove_suffix)
                         );
