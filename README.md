@@ -65,18 +65,18 @@ Sample vehicles (3, 1 of each size) will also be preloaded for testing.
 
 ## Java Updated Features
 
-String Blocks (Java SE 15)
+String Blocks (Java SE 15) <br>
 <img src="/java 17+ features/displayVSFormat-preStringBlock.png" alt="multiple print statements, readability" style="" />
 <img src="/java 17+ features/displayVSFormat-postStringBlock.png" alt="single print statement, readability" style="" />
 
-Records (Java SE 16)
+Records (Java SE 16) <br>
 [public record Vehicle](https://github.com/Iquoc/Parking-Lot-Management-App/blob/main/src/main/java/com/parkinglot/models/Vehicle.java)
 
-Stream (Java SE 17)
+Stream and Optionals (Java SE 8) <br>
 <img src="/java 17+ features/parkVehicle()-preStream.png" alt="nested conditionals, iterate through arraylist" style="" />
 <img src="/java 17+ features/parkVehicle()-postStream.png" alt="stream arraylist and filter, iterate through arraylist" style="" />
 
-Stream (Java SE 17)
+Stream (Java SE 8) <br>
 <img src="/java 17+ features/getAvailableSpots()-preStream.png" alt="nested conditionals, iterate through arraylist" style="" />
 <img src="/java 17+ features/getAvailableSpots()-postStream.png" alt="stream arraylist and filter, iterate through arraylist" style="" />
 
