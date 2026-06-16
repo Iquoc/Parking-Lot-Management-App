@@ -37,7 +37,8 @@ Open a terminal in the project root (e.g. `C:\path\to\Parking-Lot-Management-App
   1. Park a vehicle
   2. Remove a vehicle
   3. Display vehicle status
-  4. Exit
+  4. Display parking lot status
+  5. Exit
 
 ### Parking input format
 
@@ -61,6 +62,10 @@ The application initializes parking slots automatically
 using a 50/30/20 slot distribution.
 
 Sample vehicles (3, 1 of each size) will also be preloaded for testing.
+
+## Java 17+ Features
+
+<img src="/Java 17+ Features/parkVehicle()-preStream.png" alt="nested conditionals, iterate through arraylist" style="" />
 
 ## Notes
 
